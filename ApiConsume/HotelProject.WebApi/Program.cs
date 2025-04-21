@@ -30,7 +30,18 @@ builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>(); //IStaffDal'ý görünce EfStaffDal'ý kullan.
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
-
+//consume iþlemleri için gerekli olan CORS ayarlarý yapýldý.
+builder.Services.AddCors //api iþlemlerinde baþka kaynaklar tarafýndan tüketilmesini saðlayan method.
+    (options =>
+    {
+        options.AddPolicy("OtelApiCors", //bir policy oluþturduk.
+            builder =>
+            {
+                builder.AllowAnyOrigin() //herhangi bir kaynaða izin ver.
+                    .AllowAnyMethod() //herhangi bir methoda izin ver.
+                    .AllowAnyHeader(); //herhangi bir header'a izin ver.
+            });
+    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,6 +50,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("OtelApiCors"); //oluþturduðumuz policy'i kullanýyoruz. UseAuthorization'ýn üstüne yazýlýr.
 app.UseAuthorization();
 
 app.MapControllers();
