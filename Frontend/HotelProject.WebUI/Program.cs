@@ -1,6 +1,12 @@
+using HotelProject.DataAccessLayer.Concrete;
+using HotelProject.EntityLayer.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+     //Identity için gerekli olan method. AppUser ve AppRole sýnýflarýný kullanýr.
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews()
     .AddRazorRuntimeCompilation();
