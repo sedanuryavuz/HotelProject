@@ -26,7 +26,7 @@ namespace HotelProject.WebApi.Controllers
             _serviceService.TInsert(service);
             return Ok();
         }
-        [HttpDelete] //Veri silmek için kullanılır.
+        [HttpDelete("{id}")] //Veri silmek için kullanılır.
         public IActionResult DeleteService(int id)
         {
             var value = _serviceService.TGetById(id);

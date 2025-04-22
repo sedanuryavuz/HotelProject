@@ -26,7 +26,7 @@ namespace HotelProject.WebApi.Controllers
             _testimonialService.TInsert(testimonial);
             return Ok();
         }
-        [HttpDelete] //Veri silmek için kullanılır.
+        [HttpDelete("{id}")] //Veri silmek için kullanılır.
         public IActionResult DeleteTestimonial(int id)
         {
             var value = _testimonialService.TGetById(id);
