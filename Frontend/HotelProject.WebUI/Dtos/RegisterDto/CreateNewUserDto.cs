@@ -5,21 +5,21 @@ namespace HotelProject.WebUI.Dtos.RegisterDto
     public class CreateNewUserDto
     {
         [Required(ErrorMessage = "Ad alanı gereklidir..")]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [Required(ErrorMessage = "Soyad alanı gereklidir..")]
-        public string Surname { get; set; }
+        public required string Surname { get; set; }
 
         [Required(ErrorMessage = "Kullanıcı Adı alanı gereklidir..")]
-        public string Username { get; set; }
+        public required string Username { get; set; }
 
         [Required(ErrorMessage = "Mail alanı gereklidir..")]
-        public string Mail { get; set; }
+        public required string Mail { get; set; }
         [Required(ErrorMessage = "Şifre alanı gereklidir..")]
-        public string Password { get; set; }
+        public required string Password { get; set; }
 
         [Required(ErrorMessage = "Şifre Tekrar alanı gereklidir..")]
         [Compare("Password", ErrorMessage = "Şifreler uyuşmuyor..")]
-        public string ConfirmPassword { get; set; }
+        public required string ConfirmPassword { get; set; }
     }
 }
