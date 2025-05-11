@@ -1,10 +1,12 @@
 ﻿using HotelProject.EntityLayer.Concrete;
 using HotelProject.WebUI.Dtos.RegisterDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelProject.WebUI.Controllers
 {
+    [AllowAnonymous] //Login olmadan erişim sağlanabilmesi için AllowAnonymous attribute'u eklenmiştir.
     public class RegisterController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

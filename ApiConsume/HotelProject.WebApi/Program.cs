@@ -40,6 +40,13 @@ builder.Services.AddScoped<IBookingService, BookingManager>();
 builder.Services.AddScoped<IContactDal, EfContactDal>(); //IStaffDal'ý görünce EfStaffDal'ý kullan.
 builder.Services.AddScoped<IContactService, ContactManager>();
 
+builder.Services.AddScoped<IGuestDal, EfGuestDal>(); //IStaffDal'ý görünce EfStaffDal'ý kullan.
+builder.Services.AddScoped<IGuestService, GuestManager>();
+
+builder.Services.AddScoped<ISendMessageDal, EfSendMessageDal>(); //IStaffDal'ý görünce EfStaffDal'ý kullan.
+builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
+
+
 builder.Services.AddAutoMapper(typeof(Program)); //AutoMapper'ý kullanabilmek için gerekli olan method. Program.cs dosyasýný referans alýr.
 //builder.
 //consume iþlemleri için gerekli olan CORS ayarlarý yapýldý.

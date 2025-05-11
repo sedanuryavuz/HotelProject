@@ -1,12 +1,14 @@
 ﻿using HotelProject.EntityLayer.Concrete;
 using HotelProject.WebUI.Dtos.BookingDto;
 using HotelProject.WebUI.Dtos.SubscribeDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
+    [AllowAnonymous] //Login olmadan erişim sağlanabilmesi için AllowAnonymous attribute'u eklenmiştir.
     public class BookingController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

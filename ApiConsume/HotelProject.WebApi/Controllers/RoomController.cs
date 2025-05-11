@@ -26,7 +26,7 @@ namespace HotelProject.WebApi.Controllers
             _roomService.TInsert(room);
             return Ok();
         }
-        [HttpDelete] //Veri silmek için kullanılır.
+        [HttpDelete("{id}")] //Veri silmek için kullanılır.
         public IActionResult DeleteRoom(int id)
         {
             var value = _roomService.TGetById(id);

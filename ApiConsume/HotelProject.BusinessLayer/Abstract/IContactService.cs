@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace HotelProject.BusinessLayer.Abstract
 {
-    public interface IContactService : IGenericDal<Contact>
+    public interface IContactService : IGenericService<Contact>
     {
+        public int TGetContactCount();
     }
 }

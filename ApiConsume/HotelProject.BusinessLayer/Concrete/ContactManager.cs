@@ -18,27 +18,32 @@ namespace HotelProject.BusinessLayer.Concrete
             _contactDal = contactDal;
         }
 
-        public void Delete(Contact t)
+        public void TDelete(Contact t)
         {
             _contactDal.Delete(t);
         }
 
-        public Contact GetById(int id)
+        public Contact TGetById(int id)
         {
-           return _contactDal.GetById(id);
+            return _contactDal.GetById(id);
         }
 
-        public List<Contact> GetList()
+        public int TGetContactCount()
         {
-         return  _contactDal.GetList();
+            return _contactDal.GetContactCount();
         }
 
-        public void Insert(Contact t)
+        public List<Contact> TGetList()
         {
-           _contactDal.Insert(t);
+            return _contactDal.GetList();
         }
 
-        public void Update(Contact t)
+        public void TInsert(Contact t)
+        {
+            _contactDal.Insert(t);
+        }
+
+        public void TUpdate(Contact t)
         {
             _contactDal.Update(t);
         }
